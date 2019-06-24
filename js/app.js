@@ -26,9 +26,7 @@ const updateUI = data => {
 
 	// Update Night/Day Img
 	let weatherImg = weather.IsDayTime ? './img/day.svg' : './img/night.svg';
-
 	timeImg.setAttribute('src', weatherImg);
-
 	if (displaySection.classList.contains('d-none')) {
 		displaySection.classList.remove('d-none');
 	}
@@ -42,14 +40,26 @@ const updateCity = async city => {
 
 form.addEventListener('submit', event => {
 	event.preventDefault();
-
 	const city = form.city.value.trim();
 	form.reset();
 
 	updateCity(city)
 		.then(data => {
-			console.log(data);
 			updateUI(data);
 		})
 		.catch(err => console.log(err));
+
+	// Set Local Storage
+	localStorage.setItem('city', city);
 });
+
+// Check if the city is saved in local storage
+if (localStorage.getItem('city')) {
+	updateCity(localStorage.getItem('city'))
+		.then(data => {
+			updateUI(data);
+		})
+		.catch(err => {
+			console.log(err);
+		});
+}

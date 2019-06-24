@@ -19,14 +19,3 @@ const getWeather = async id => {
 
 	return data[0];
 };
-
-// Testing with dummy data
-
-// getCity('Colombo')
-// 	.then(data => {
-// 		return getWeather(data.Key);
-// 	})
-// 	.then(weatherInfo => {
-// 		console.log(weatherInfo);
-// 	})
-// 	.catch(err => console.log(err));
