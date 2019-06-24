@@ -1,0 +1,13 @@
+body {
+	background: #eeedec;
+	letter-spacing: 0.2rem;
+	font-size: 0.8rem;
+}
+
+.icon {
+	position: relative;
+	top: -50px;
+	border-radius: 50%;
+	width: 100px;
+	margin-bottom: -3rem;
+}
